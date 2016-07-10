@@ -49,6 +49,8 @@ public class BrokerManagerTest {
     @Test
     public void bootstrap() {
         Broker broker = new Broker();
+        broker.initializeBroker("localhost", 5565, 5567);
+        broker.initializeBrokerContext(1);
         broker.bootstrap();
         assertNotNull("Expects inbound socket not to be null", broker.inboundSocket);
         assertNotNull("Expects outbound socket not to be null", broker.outboundSocket);

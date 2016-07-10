@@ -6,22 +6,14 @@ import org.zeromq.ZMQ;
  *
  * Created by isuru on 7/10/16.
  */
+@SuppressWarnings("WeakerAccess")
 public class Broker {
     public ZMQ.Socket inboundSocket;
     public ZMQ.Socket outboundSocket;
+    public ZMQ.Context context;
     public String brokerAddress;
     public int inboundPort;
     public int outboundPort;
-    public ZMQ.Context context;
-
-//    private Broker() {}
-//
-//    public static Broker getInstance() {
-//        if (instance == null) {
-//            instance = new Broker();
-//        }
-//        return instance;
-//    }
 
     public void initializeBroker(String brokerAddress, int inboundPort, int outboundPort) {
         this.brokerAddress = brokerAddress;
@@ -30,7 +22,8 @@ public class Broker {
     }
 
     public void bootstrap() {
-
+        inboundSocket = context.socket(ZMQ.SUB);
+        outboundSocket = context.socket(ZMQ.PUB);
     }
 
     public void initializeBrokerContext(int ioThreads) {

@@ -22,13 +22,6 @@ public class BrokerManagerTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    //@Test
-    //public void initializeBrokerManager() {
-        //when(Broker.getInstance()).thenReturn(brokerManagerMock);
-        //Broker brokerManager = Broker.getInstance();
-        //assertThat("broker manager is not null", brokerManager, is(brokerManagerMock));
-    //}
-
     @Test
     public void initializeBroker() {
         AbstractBroker broker = new Broker();

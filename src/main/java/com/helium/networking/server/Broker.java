@@ -21,7 +21,9 @@ public class Broker {
         this.outboundPort = outboundPort;
     }
 
-    public void bootstrap() {
+    public void bootstrap(String brokerAddress, int inboundPort, int outboundPort, int ioThreads) {
+        initializeBroker(brokerAddress, inboundPort, outboundPort);
+        initializeBrokerContext(ioThreads);
         inboundSocket = context.socket(ZMQ.SUB);
         outboundSocket = context.socket(ZMQ.PUB);
     }

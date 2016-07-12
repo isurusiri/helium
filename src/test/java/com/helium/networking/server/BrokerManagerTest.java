@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
 
 /**
  *
@@ -15,7 +14,7 @@ import static org.mockito.Mockito.when;
 public class BrokerManagerTest {
 
     @InjectMocks
-    private Broker brokerMock = new Broker();
+    private AbstractBroker brokerMock = new Broker();
 
 
     @Before
@@ -32,7 +31,7 @@ public class BrokerManagerTest {
 
     @Test
     public void initializeBroker() {
-        Broker broker = new Broker();
+        AbstractBroker broker = new Broker();
         broker.initializeBroker("localhost", 5565, 5567);
         assertNotNull("Expects broker address not to be null", broker.brokerAddress);
         assertNotNull("Expects inbound port not to be null", broker.inboundPort);
@@ -41,14 +40,14 @@ public class BrokerManagerTest {
 
     @Test
     public void initializeBrokerContext() {
-        Broker broker = new Broker();
+        AbstractBroker broker = new Broker();
         broker.initializeBrokerContext(1);
         assertNotNull("Expects broker context not to be null", broker.context);
     }
 
     @Test
     public void bootstrap() {
-        Broker broker = new Broker();
+        AbstractBroker broker = new Broker();
         broker.bootstrap("localhost", 5565, 5567, 1);
         assertNotNull("Expects inbound socket not to be null", broker.inboundSocket);
         assertNotNull("Expects outbound socket not to be null", broker.outboundSocket);

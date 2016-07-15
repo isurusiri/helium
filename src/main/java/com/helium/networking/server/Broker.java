@@ -31,6 +31,6 @@ public class Broker extends AbstractBroker {
 
     @Override
     public void bindBroker() {
-
+        this.inboundSocket.bind("tcp://"+this.brokerAddress+":"+this.inboundPort);
     }
 }

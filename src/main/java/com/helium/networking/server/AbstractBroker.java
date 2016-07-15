@@ -20,4 +20,6 @@ public abstract class AbstractBroker {
     public abstract void bootstrap(String brokerAddress, int inboundPort, int outboundPort, int ioThreads);
 
     public abstract void initializeBrokerContext(int ioThreads);
+
+    public abstract void bindBroker();
 }

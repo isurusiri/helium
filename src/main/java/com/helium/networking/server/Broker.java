@@ -28,4 +28,9 @@ public class Broker extends AbstractBroker {
     public void initializeBrokerContext(int ioThreads) {
         context = ZMQ.context(ioThreads);
     }
+
+    @Override
+    public void bindBroker() {
+
+    }
 }

@@ -20,8 +20,8 @@ public class Broker extends AbstractBroker {
     public void bootstrap(String brokerAddress, int inboundPort, int outboundPort, int ioThreads) {
         initializeBroker(brokerAddress, inboundPort, outboundPort);
         initializeBrokerContext(ioThreads);
-        inboundSocket = context.socket(ZMQ.ROUTER);
-        outboundSocket = context.socket(ZMQ.DEALER);
+        inboundSocket = context.socket(ZMQ.SUB);
+        outboundSocket = context.socket(ZMQ.PUB);
     }
 
     @Override
